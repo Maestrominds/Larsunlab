@@ -11,6 +11,15 @@ const categories = ["All Events", "Conference", "Exhibition", "Internal"];
 
 
 export default function EventsPage() {
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return "";
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    });
+  };
   const [active, setActive] = useState("All Events");
   const [events, setEvents] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -103,7 +112,7 @@ export default function EventsPage() {
                   {/* CONTENT - BELOW IMAGE */}
                   <div className="p-6 flex flex-col flex-grow">
                     <div className="flex justify-between items-center text-[11px] font-bold text-orange-500 uppercase tracking-widest mb-2">
-                     {item.endDate ? `${item.date} - ${item.endDate}` : item.date}
+                     {item.endDate ? `${formatDate(item.date)} - ${formatDate(item.endDate)}` : formatDate(item.date)}
                     </div>
 
                     <h3 className="text-[#2b1e70] font-bold text-xl leading-tight mb-4 group-hover:text-orange-500 transition-colors">

@@ -7,6 +7,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, MapPin, Calendar, Clock, ArrowLeft } from "lucide-react";
 
 export default function EventDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return "";
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    });
+  };
   const { id } = use(params);
   const [event, setEvent] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -171,7 +180,7 @@ export default function EventDetailPage({ params }: { params: Promise<{ id: stri
                 <div>
                   <p className="text-[10px] uppercase tracking-widest font-black text-gray-400 mb-0.5">Event Date</p>
                   <p className="font-bold text-[#2b1e70]">
-                    {event.endDate ? `${event.date} - ${event.endDate}` : event.date}
+                    {event.endDate ? `${formatDate(event.date)} - ${formatDate(event.endDate)}` : formatDate(event.date)}
                   </p>
                 </div>
               </div>
