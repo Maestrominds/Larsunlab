@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 
-const categories = ["All Events", "Conference", "Exhibition", "Internal"];
+const categories = ["All Events", "Conference", "CME", "Internal"];
 
 
 

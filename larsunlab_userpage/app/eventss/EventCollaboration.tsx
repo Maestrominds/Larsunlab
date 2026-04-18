@@ -62,7 +62,7 @@ export default function EventCollaboration() {
             {/* DESC */}
             <p className="text-gray-600 mt-4 leading-relaxed max-w-lg">
               We believe in the power of shared knowledge. Larsun Labs sponsors
-              satellite seminars and collaborative workshops globally.
+              satellite CME and collaborative workshops globally.
               Interested in hosting an event at your institution?
             </p>
 
@@ -79,7 +79,7 @@ export default function EventCollaboration() {
                     Sponsorship Program
                   </h4>
                   <p className="text-gray-500 text-sm">
-                    Access funding and logistical support for clinical seminars.
+                    Access funding and logistical support for clinical CME.
                   </p>
                 </div>
               </div>
