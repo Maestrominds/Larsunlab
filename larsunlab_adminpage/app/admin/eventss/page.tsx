@@ -231,8 +231,8 @@ export default function EventsPage() {
   const getBadgeColor = (type: string) => {
     switch (type) {
       case "Conference": return "bg-[#2B176F]/10 text-[#2B176F] border-[#2B176F]/20";
-      case "Seminar": return "bg-orange-50 text-orange-600 border-orange-200";
-      case "Exhibition": return "bg-blue-50 text-blue-600 border-blue-200";
+      case "CME": return "bg-orange-50 text-orange-600 border-orange-200";
+      case "Internal": return "bg-blue-50 text-blue-600 border-blue-200";
       default: return "bg-gray-50 text-gray-600 border-gray-200";
     }
   };
@@ -281,7 +281,7 @@ export default function EventsPage() {
             <h1 className="text-3xl md:text-4xl font-extrabold text-[#2B176F]">Events Hub</h1>
           </div>
           <p className="text-sm text-gray-500 max-w-[600px] leading-relaxed">
-            Organize clinical seminars, global conferences, and laboratory exhibitions.
+            Organize clinical CME, global conferences, and laboratory internal events.
             Sync breakthroughs with the Larsun Labs global network.
           </p>
         </div>
@@ -300,7 +300,7 @@ export default function EventsPage() {
       {/* FILTER TABS */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 bg-white p-2 rounded-2xl shadow-sm ring-1 ring-gray-100 gap-4 md:gap-0">
         <div className="flex gap-1 overflow-x-auto w-full md:w-auto hide-scrollbar">
-          {["All", "Conference", "Seminar", "Exhibition"].map((item) => (
+          {["All", "Conference", "CME", "Internal"].map((item) => (
             <button
               key={item}
               onClick={() => {
@@ -584,8 +584,8 @@ export default function EventsPage() {
                       className="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl text-sm font-bold text-[#2B176F] focus:ring-2 focus:ring-[#2B176F]/20 outline-none appearance-none cursor-pointer"
                     >
                       <option value="Conference">Conference</option>
-                      <option value="Seminar">Seminar</option>
-                      <option value="Exhibition">Exhibition</option>
+                      <option value="CME">CME</option>
+                      <option value="Internal">Internal</option>
                     </select>
                   </div>
 
