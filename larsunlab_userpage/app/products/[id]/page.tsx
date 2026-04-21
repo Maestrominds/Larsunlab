@@ -29,7 +29,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products/${id}`);
         if (!response.ok) {
-           throw new Error("Product not found");
+          throw new Error("Product not found");
         }
         const data = await response.json();
         setProduct(data);
@@ -150,9 +150,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
             <h1 className="text-4xl lg:text-6xl font-black text-[#2b1e70] leading-[1.1] mb-8 break-words">{product.name}</h1>
 
-
-
-
+            <div className="mb-10 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-[2px] bg-orange-500" />
+                <span className="text-[10px] font-black text-orange-600 uppercase tracking-widest">Molecular Description</span>
+              </div>
+              <p className="text-gray-600 leading-relaxed text-lg font-medium italic border-l-4 border-orange-100 pl-6 py-2 bg-orange-50/30 rounded-r-2xl">
+                "{product.description || "Specifically engineered for high-efficacy molecular management and superior glycemic stability."}"
+              </p>
+            </div>
           </div>
         </div>
         {/* FULL WIDTH DATA SHEET */}
@@ -165,15 +171,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
               {/* LEFT: COMPOSITION & OVERVIEW (SPANS 5 COLUMNS) */}
               <section className="lg:col-span-5 space-y-10">
-                <div>
-                  <span className="text-[11px] font-black text-orange-600 uppercase tracking-widest block mb-4">Chemical Composition</span>
-                  <h2 className="text-4xl font-black text-[#2b1e70] mb-8 leading-tight">Description</h2>
-                  <div className="bg-gray-50 p-6 sm:p-10 rounded-2xl sm:rounded-[32px] border border-gray-100 shadow-sm">
-                    <p className="text-[#2b1e70] leading-relaxed text-lg sm:text-xl font-bold whitespace-pre-wrap italic break-words">
-                      "{product.description || "Specifically engineered for high-efficacy molecular management and superior glycemic stability."}"
-                    </p>
-                  </div>
-                </div>
 
                 {/* PACK & STORAGE (COMPACT IN LEFT COL) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
