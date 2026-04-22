@@ -23,6 +23,11 @@ jobs:
                   script: |
                       set -euo pipefail
 
+                      # Make Bun visible in non-interactive SSH shells
+                      export BUN_INSTALL="${HOME}/.bun"
+                      export PATH="${BUN_INSTALL}/bin:${PATH}"
+                      hash -r
+
                       cd /var/www/Larsunlab
 
                       echo "===> Fetch + hard reset to origin/main"
