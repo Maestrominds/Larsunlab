@@ -2,10 +2,12 @@ import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 import dotenv from 'dotenv';
 import dns from 'dns';
-import { PrismaClient } from '@prisma/client';
 import { PrismaNeon } from '@prisma/adapter-neon';
 import { neonConfig } from '@neondatabase/serverless';
 import WebSocket from 'ws';
+
+import pkg from '@prisma/client';
+const { PrismaClient } = pkg;
 
 // Resolve absolute path to .env (src/config -> ../../ = backend/)
 const __filename = fileURLToPath(import.meta.url);
