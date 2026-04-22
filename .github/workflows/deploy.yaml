@@ -1,56 +1,55 @@
 name: Deploy to VPS
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+    push:
+        branches: [main]
+    workflow_dispatch:
 
 concurrency:
-  group: production-deploy
-  cancel-in-progress: true
+    group: production-deploy
+    cancel-in-progress: true
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+    deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Deploy over SSH
-        uses: appleboy/ssh-action@v1.2.5
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.VPS_PORT || 22 }}
-          script_stop: true
-          script: |
-            set -euo pipefail
+        steps:
+            - name: Deploy over SSH
+              uses: appleboy/ssh-action@v1.2.5
+              with:
+                  host: ${{ secrets.VPS_HOST }}
+                  username: ${{ secrets.VPS_USER }}
+                  key: ${{ secrets.VPS_SSH_KEY }}
+                  port: ${{ secrets.VPS_PORT || 22 }}
+                  script: |
+                      set -euo pipefail
 
-            cd /var/www/Larsunlab
+                      cd /var/www/Larsunlab
 
-            echo "===> Fetch + hard reset to origin/main"
-            git fetch origin main
-            git reset --hard origin/main
+                      echo "===> Fetch + hard reset to origin/main"
+                      git fetch origin main
+                      git reset --hard origin/main
 
-            echo "===> Backend deploy"
-            cd /var/www/Larsunlab/backend
-            bun install
-            bunx prisma generate || true
-            pm2 restart larsunlab-backend || pm2 start "bun run start" --name larsunlab-backend --cwd /var/www/Larsunlab/backend
+                      echo "===> Backend deploy"
+                      cd /var/www/Larsunlab/backend
+                      bun install
+                      bunx prisma generate || true
+                      pm2 restart larsunlab-backend || pm2 start "bun run start" --name larsunlab-backend --cwd /var/www/Larsunlab/backend
 
-            echo "===> Frontend deploy"
-            cd /var/www/Larsunlab/larsunlab_userpage
-            bun install
-            bun run build
-            pm2 restart larsunlab-userpage || pm2 start "bun run start -- -p 3000" --name larsunlab-userpage --cwd /var/www/Larsunlab/larsunlab_userpage
+                      echo "===> Frontend deploy"
+                      cd /var/www/Larsunlab/larsunlab_userpage
+                      bun install
+                      bun run build
+                      pm2 restart larsunlab-userpage || pm2 start "bun run start -- -p 3000" --name larsunlab-userpage --cwd /var/www/Larsunlab/larsunlab_userpage
 
-            echo "===> Save PM2 process list"
-            pm2 save
+                      echo "===> Save PM2 process list"
+                      pm2 save
 
-            echo "===> Local health checks"
-            curl -fsS http://127.0.0.1:5000 >/dev/null
-            curl -fsS http://127.0.0.1:3000 >/dev/null
+                      echo "===> Local health checks"
+                      curl -fsS http://127.0.0.1:5000 >/dev/null
+                      curl -fsS http://127.0.0.1:3000 >/dev/null
 
-            echo "===> Public health checks"
-            curl -fsS https://api.larsunlabs.com >/dev/null
-            curl -fsS https://larsunlabs.com >/dev/null
+                      echo "===> Public health checks"
+                      curl -fsS https://api.larsunlabs.com >/dev/null
+                      curl -fsS https://larsunlabs.com >/dev/null
 
-            echo "Deploy completed successfully."
+                      echo "Deploy completed successfully."
