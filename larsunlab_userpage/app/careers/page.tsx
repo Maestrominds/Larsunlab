@@ -114,30 +114,14 @@ export default function CareersPage() {
               OUR CULTURE
             </span>
 
-            <h2 className="text-[36px] font-bold text-[#2b1e70] mt-4">
-              Why Join Us?
+            <h2 className="text-3xl md:text-[42px] font-black text-[#2b1e70] mt-4 leading-[1.1] tracking-tight">
+              Build Your Career in Pharma. <br />
+              <span className="text-orange-500">Grow With Tamil Nadu's Doctors.</span>
             </h2>
 
-            <p className="text-gray-600 mt-4 leading-relaxed max-w-md">
-              At Larsun Labs, we blend clinical rigor with human empathy. Join a
-              team dedicated to pushing the boundaries of medical research while
-              maintaining a supportive, visionary environment.
+            <p className="text-gray-600 mt-6 leading-relaxed max-w-xl text-[15px] font-medium">
+              Larsun Labs is built on the strength of its people in the field. If you are a motivated pharmaceutical professional who values performance, relationships, and the satisfaction of making a real difference in healthcare delivery we want to speak with you.
             </p>
-
-            {/* BENEFITS */}
-            <div className="flex flex-wrap gap-3 mt-6">
-              <div className="bg-purple-100 text-[#2b1e70] px-4 py-2 rounded-full text-sm">
-                📈 Fast-track growth
-              </div>
-
-              <div className="bg-purple-100 text-[#2b1e70] px-4 py-2 rounded-full text-sm">
-                💰 Performance bonuses
-              </div>
-
-              <div className="bg-purple-100 text-[#2b1e70] px-4 py-2 rounded-full text-sm">
-                🎯 Competitive incentives
-              </div>
-            </div>
           </div>
 
           {/* RIGHT IMAGE */}
@@ -181,8 +165,9 @@ export default function CareersPage() {
                     VISIT US
                   </p>
                   <p className="text-sm text-gray-700 mt-1">
-                    1221 Research Plaza, Suite 400 <br />
-                    Bio-Tech Park, Chennai
+                    Plot no: 262-A,2nd Floor,Indira Gandhi Salai <br />
+                    Valasaravakkam,Chennai,TamilNadu <br />
+                    600087
                   </p>
                 </div>
               </div>
@@ -195,8 +180,7 @@ export default function CareersPage() {
                     EMAIL US
                   </p>
                   <p className="text-sm text-gray-700 mt-1">
-                    careers@larsunlabs.com <br />
-                    General: info@larsunlabs.com
+                    larsunlabs@gmail.com
                   </p>
                 </div>
               </div>
@@ -207,8 +191,8 @@ export default function CareersPage() {
                 <div>
                   <p className="text-xs text-gray-400 font-semibold">CALL US</p>
                   <p className="text-sm text-gray-700 mt-1">
-                    +91 97522 90006 <br />
-                    Mon - Fri, 9am - 6pm PST
+                    +91 77084 17777 <br />
+                    Mon - Sat, 9am - 6pm IST
                   </p>
                 </div>
               </div>
@@ -229,11 +213,11 @@ export default function CareersPage() {
             {/* JOB LIST */}
             <div className="space-y-4 max-h-[520px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
               {fetching ? (
-                 <div className="space-y-4">
-                    {[1,2,3].map(n => (
-                      <div key={n} className="h-24 bg-white/50 rounded-xl animate-pulse" />
-                    ))}
-                 </div>
+                <div className="space-y-4">
+                  {[1, 2, 3].map(n => (
+                    <div key={n} className="h-24 bg-white/50 rounded-xl animate-pulse" />
+                  ))}
+                </div>
               ) : jobs.length === 0 ? (
                 <div className="bg-white p-10 rounded-xl text-center">
                   <p className="text-gray-400 font-medium">No open positions at the moment.</p>
@@ -368,7 +352,7 @@ export default function CareersPage() {
                     />
                   </div>
 
-                   {/* FILE */}
+                  {/* FILE */}
                   <div>
                     <label className="text-xs font-semibold text-gray-400">
                       RESUME / CV (PDF FORMAT ONLY)
@@ -389,7 +373,7 @@ export default function CareersPage() {
                   </div>
 
                   {/* BUTTON */}
-                  <button 
+                  <button
                     onClick={handleApply}
                     disabled={submitting}
                     className="w-full bg-[#2b1e70] text-white py-3 rounded-md font-semibold hover:scale-[1.02] transition mt-2 disabled:opacity-50"

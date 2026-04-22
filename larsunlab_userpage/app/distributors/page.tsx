@@ -62,20 +62,19 @@ export default function DistributorsPage() {
       <div className="max-w-6xl mx-auto px-6">
         {/* TAG */}
         <div className="inline-block bg-orange-500 text-white text-xs font-semibold px-4 py-1 rounded-full tracking-wide">
-          GLOBAL ACCESS
+          DISTRIBUTION NETWORK
         </div>
 
         {/* TITLE */}
         <h1 className="mt-6 text-[52px] leading-[1.1] font-extrabold tracking-tight">
-          <span className="text-[#2b1e70]">Global Clinical </span>
-          <span className="text-orange-500">Supply Network</span>
+          <span className="text-[#2b1e70]">A Distribution Network </span>
+          <span className="text-orange-500">Built on Reliability</span>
         </h1>
 
         {/* DESCRIPTION */}
         <p className="mt-6 text-[16px] text-gray-600 max-w-2xl leading-relaxed">
-          Larsun Labs maintains a precision-engineered distribution
-          infrastructure across Tamil Nadu and beyond. Our regional partners are vetted
-          for medical-grade storage and rapid-response delivery.
+          Larsun Labs operates a territory-driven distribution network across Tamil Nadu, managed by a dedicated team of Medical Representatives and regional stockists.<br />
+          Our model is simple: the right product, in the right quantity, reaching the right clinic — on time, every time.
         </p>
 
         {/* RIGHT SIDE PILLS */}
@@ -116,7 +115,7 @@ export default function DistributorsPage() {
             <div className="py-12 text-center text-red-500 bg-red-50 rounded-2xl border border-red-100 px-6">
               <p className="text-lg font-semibold mb-2">Network Sync Error</p>
               <p className="text-sm opacity-80">{error}</p>
-              <button 
+              <button
                 onClick={() => window.location.reload()}
                 className="mt-4 text-xs font-bold uppercase tracking-widest bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 transition"
               >
@@ -152,9 +151,8 @@ export default function DistributorsPage() {
 
                   <ChevronDown
                     size={20}
-                    className={`transition ${
-                      active === item.city ? "rotate-180" : ""
-                    }`}
+                    className={`transition ${active === item.city ? "rotate-180" : ""
+                      }`}
                   />
                 </div>
 
@@ -163,8 +161,8 @@ export default function DistributorsPage() {
                   <div className="bg-[#f8f9fa] mt-3 rounded-2xl px-6 py-6 ring-1 ring-gray-200">
                     <div className="flex flex-wrap gap-4">
                       {item.locations.map((loc: any, idx: number) => (
-                        <div 
-                          key={idx} 
+                        <div
+                          key={idx}
                           className="bg-white py-4 px-5 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all w-full md:w-auto md:min-w-[280px]"
                         >
                           <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center shrink-0">
@@ -173,7 +171,7 @@ export default function DistributorsPage() {
                           <div>
                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">Authorized Partner</p>
                             <h4 className="text-[#2b1e70] font-bold text-[15px]">
-                               {loc.company}
+                              {loc.company}
                             </h4>
                           </div>
                         </div>

@@ -36,12 +36,10 @@ export default function ProductsPage() {
   const itemsPerPage = 8;
   const categories = [
     "All",
-    "Cardiology",
-    "Neurology",
-    "Orthopedics",
-    "Gastroenterology",
-    "Diabetology",
-    "Immunology",
+    "CARDIOLOGY",
+    "ORTHOPEDICS",
+    "GYNAECOLOGY",
+    "CRITICAL CARE",
   ];
 
   const fetchProducts = async () => {
@@ -74,7 +72,7 @@ export default function ProductsPage() {
     precautions: "",
     storage: "",
     disclaimer: "",
-    category: "Cardiology",
+    category: "CARDIOLOGY",
   });
   const [selectedImages, setSelectedImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
@@ -131,7 +129,7 @@ export default function ProductsPage() {
       precautions: "",
       storage: "",
       disclaimer: "",
-      category: "Cardiology",
+      category: "CARDIOLOGY",
     });
     setSelectedImages([]);
     imagePreviews.forEach(url => URL.revokeObjectURL(url));

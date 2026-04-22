@@ -155,7 +155,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <div className="w-8 h-[2px] bg-orange-500" />
                 <span className="text-[10px] font-black text-orange-600 uppercase tracking-widest">Molecular Description</span>
               </div>
-              <p className="text-gray-600 leading-relaxed text-lg font-medium italic border-l-4 border-orange-100 pl-6 py-2 bg-orange-50/30 rounded-r-2xl">
+              <p className="text-orange-600 leading-relaxed text-lg font-medium italic border-l-4 border-orange-100 pl-6 py-2 bg-orange-50/30 rounded-r-2xl">
                 "{product.description || "Specifically engineered for high-efficacy molecular management and superior glycemic stability."}"
               </p>
             </div>

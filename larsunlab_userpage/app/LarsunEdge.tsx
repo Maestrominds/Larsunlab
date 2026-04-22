@@ -14,7 +14,7 @@ const items = [
   },
   {
     title: "Focused Therapeutic Expertise",
-    desc: "Strong presence across Cardiology, Diabetology and Critical Care with a growing portfolio of essential molecules.",
+    desc: "Strong presence across Cardiology, Orthopedics, Gynaecology and Critical Care with a growing portfolio of essential molecules.",
     icon: <Handshake className="text-orange-500" size={22} />,
   },
   {

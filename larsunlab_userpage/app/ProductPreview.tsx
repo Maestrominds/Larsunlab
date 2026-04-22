@@ -58,7 +58,7 @@ export default function ProductPreview({
               {/* CONTENT */}
               <div className="p-5 flex flex-col flex-grow">
                 <h3 className="text-[#2b1e70] font-bold text-lg line-clamp-2">{p.name}</h3>
-                <p className="text-gray-600 text-sm mt-3 flex-grow mb-4 line-clamp-3">{p.desc}</p>
+                <p className="text-orange-500 text-sm mt-3 flex-grow mb-4 line-clamp-3 font-medium">{p.desc}</p>
 
                 {/* BUTTON */}
                 <button

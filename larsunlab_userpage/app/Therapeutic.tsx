@@ -1,27 +1,27 @@
 "use client";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { HeartPulse, Activity, Bone, Syringe } from "lucide-react";
+import { HeartPulse, Activity, Bone, Syringe, Stethoscope } from "lucide-react";
 
 const items = [
   {
-    title: "Cardiology",
+    title: "CARDIOLOGY",
     desc: "Advanced hypertension management and cardiovascular wellness portfolios.",
     icon: <HeartPulse size={22} />,
   },
   {
-    title: "Diabetology",
-    desc: "New-generation oral hypoglycemics for comprehensive glycemic control.",
-    icon: <Activity size={22} />,
-  },
-  {
-    title: "Ortho",
+    title: "ORTHOPEDICS",
     desc: "Breakthrough treatments for osteo-health and inflammatory pain relief.",
     icon: <Bone size={22} />,
   },
   {
-    title: "Critical Care",
-    desc: "Life-saving injectables for critical support systems.",
+    title: "GYNAECOLOGY",
+    desc: "Comprehensive care and specialized solutions for women's health.",
+    icon: <Stethoscope size={22} />,
+  },
+  {
+    title: "CRITICAL CARE",
+    desc: "Life-saving injectables and advanced support systems for emergencies.",
     icon: <Syringe size={22} />,
   },
 ];

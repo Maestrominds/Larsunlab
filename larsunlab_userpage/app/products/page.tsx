@@ -8,12 +8,10 @@ import { motion } from "framer-motion";
 
 const categories = [
   "All",
-  "Cardiology",
-  "Neurology",
-  "Orthopedics",
-  "Gastroenterology",
-  "Diabetology",
-  "Immunology",
+  "CARDIOLOGY",
+  "ORTHOPEDICS",
+  "GYNAECOLOGY",
+  "CRITICAL CARE",
 ];
 
 export default function ProductsPage() {
@@ -154,7 +152,7 @@ export default function ProductsPage() {
                       {p.name}
                     </h3>
 
-                    <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">
+                    <p className="text-orange-500 text-sm leading-relaxed mb-4 line-clamp-3 font-medium">
                       {p.description ||
                         "Synthesizing excellence through state-of-the-art laboratory clinical trials."}
                     </p>
@@ -201,6 +199,32 @@ export default function ProductsPage() {
             </button>
           </div>
         )}
+
+        {/* BOTTOM CTA */}
+        <div className="mt-24 bg-[#2b1e70] rounded-[40px] p-8 md:p-12 relative overflow-hidden shadow-2xl">
+          {/* BACKGROUND DECORATION */}
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#4b2fd1]/20 rounded-full blur-3xl" />
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left max-w-2xl">
+              <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
+                Can't Find What You're Looking For?
+              </h2>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed font-medium">
+                Our product range is continuously growing. If you are looking for a specific molecule or therapeutic combination that is not listed here, reach out to our team — we may have it in our pipeline.
+              </p>
+            </div>
+
+            <Link
+              href="https://wa.me/918248592553"
+              target="_blank"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all shadow-lg shadow-orange-500/20 active:scale-[0.98] whitespace-nowrap"
+            >
+              Contact on WhatsApp
+            </Link>
+          </div>
+        </div>
 
       </div>
     </section>

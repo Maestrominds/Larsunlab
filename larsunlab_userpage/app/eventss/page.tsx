@@ -53,10 +53,21 @@ export default function EventsPage() {
     <>
       <section className="bg-[#f4f5f9] py-16">
         <div className="max-w-7xl mx-auto px-6">
+          {/* TAG */}
+          <div className="inline-block bg-orange-500 text-white text-[10px] font-black px-4 py-1.5 rounded-full tracking-[2px] uppercase mb-6">
+            DOCTOR ENGAGEMENT & EVENTS
+          </div>
+
           {/* TITLE */}
-          <h1 className="text-[40px] md:text-[44px] font-extrabold text-[#2b1e70] leading-tight">
-            Global Scientific Gatherings <br /> & Breakthroughs
+          <h1 className="text-4xl md:text-[52px] leading-[1.1] font-black text-[#2b1e70] tracking-tight">
+            Where We Meet the <br className="hidden md:block" />
+            <span className="text-orange-500">Doctors We Serve.</span>
           </h1>
+
+          {/* DESCRIPTION */}
+          <p className="mt-6 text-[16px] md:text-lg text-gray-600 max-w-3xl leading-relaxed font-medium">
+            At Larsun Labs, we believe that doctor relationships are built beyond the prescription pad. Through CMEs, product knowledge sessions, specialist meets, and territory programmes, we stay connected with the healthcare professionals we serve across Tamil Nadu.
+          </p>
 
           {/* FILTER BUTTONS */}
           <div className="flex gap-3 mt-6 flex-wrap">
