@@ -152,7 +152,7 @@ export default function ProductsPage() {
                       {p.name}
                     </h3>
 
-                    <p className="text-orange-500 text-sm leading-relaxed mb-4 line-clamp-3 font-medium">
+                    <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">
                       {p.description ||
                         "Synthesizing excellence through state-of-the-art laboratory clinical trials."}
                     </p>
