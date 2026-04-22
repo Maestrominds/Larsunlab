@@ -1,7 +1,8 @@
 name: Deploy to VPS
+
 on:
     push:
-        branches: [main]
+        branches: ["main"]
     workflow_dispatch:
 
 concurrency:
@@ -11,50 +12,69 @@ concurrency:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        timeout-minutes: 20
 
         steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
             - name: Deploy over SSH
-              uses: appleboy/ssh-action@v1.2.5
+              uses: appleboy/ssh-action@v1.2.0
               with:
                   host: ${{ secrets.VPS_HOST }}
                   username: ${{ secrets.VPS_USER }}
                   key: ${{ secrets.VPS_SSH_KEY }}
                   port: ${{ secrets.VPS_PORT || 22 }}
+                  command_timeout: 30m
                   script: |
                       set -euo pipefail
 
-                      # Make Bun visible in non-interactive SSH shells
-                      export BUN_INSTALL="${HOME}/.bun"
-                      export PATH="${BUN_INSTALL}/bin:${PATH}"
+                      # Prepare Bun PATH
+                      export BUN_INSTALL="$HOME/.bun"
+                      export PATH="$BUN_INSTALL/bin:$PATH"
                       hash -r
 
+                      echo "===> Update source"
                       cd /var/www/Larsunlab
-
-                      echo "===> Fetch + hard reset to origin/main"
                       git fetch origin main
                       git reset --hard origin/main
 
-                      echo "===> Backend deploy"
+                      echo "===> Backend"
                       cd /var/www/Larsunlab/backend
-                      bun install
+                      bun install --frozen-lockfile
                       bunx prisma generate || true
                       pm2 restart larsunlab-backend || pm2 start "bun run start" --name larsunlab-backend --cwd /var/www/Larsunlab/backend
 
-                      echo "===> Frontend deploy"
+                      echo "===> Frontend"
                       cd /var/www/Larsunlab/larsunlab_userpage
-                      bun install
+                      bun install --frozen-lockfile
                       bun run build
-                      pm2 restart larsunlab-userpage || pm2 start "bun run start -- -p 3000" --name larsunlab-userpage --cwd /var/www/Larsunlab/larsunlab_userpage
+                      pm2 restart larsunlab-userpage || pm2 start "bun run start -- -p 3000 -H 0.0.0.0" --name larsunlab-userpage --cwd /var/www/Larsunlab/larsunlab_userpage
+
+                      echo "===> PM2 status"
+                      pm2 status
+
+                      echo "===> Wait for backend health"
+                      for i in {1..30}; do
+                        if curl -fsS http://127.0.0.1:5000 >/dev/null; then
+                          echo "Backend is healthy"
+                          break
+                        fi
+                        sleep 2
+                      done
+                      curl -fsS http://127.0.0.1:5000 >/dev/null
+
+                      echo "===> Wait for frontend health"
+                      for i in {1..30}; do
+                        if curl -fsS http://127.0.0.1:3000 >/dev/null; then
+                          echo "Frontend is healthy"
+                          break
+                        fi
+                        sleep 2
+                      done
+                      curl -fsS http://127.0.0.1:3000 >/dev/null
 
                       echo "===> Save PM2 process list"
                       pm2 save
 
-                      echo "===> Local health checks"
-                      curl -fsS http://127.0.0.1:5000 >/dev/null
-                      curl -fsS http://127.0.0.1:3000 >/dev/null
-
-                      echo "===> Public health checks"
-                      curl -fsS https://api.larsunlabs.com >/dev/null
-                      curl -fsS https://larsunlabs.com >/dev/null
-
-                      echo "Deploy completed successfully."
+                      echo "===> Deploy complete"
