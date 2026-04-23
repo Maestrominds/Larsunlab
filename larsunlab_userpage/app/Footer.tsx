@@ -85,9 +85,13 @@ export default function Footer() {
           </div>
 
           {/* BUTTON */}
-          <button className="mt-6 bg-white text-[#2b1e70] px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90 transition">
-            Request Specialist Callback
-          </button>
+          <Link 
+            href="https://wa.me/917708417777" 
+            target="_blank"
+            className="mt-6 inline-block bg-white text-[#2b1e70] px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90 transition"
+          >
+            Contact on WhatsApp
+          </Link>
         </div>
       </div>
 

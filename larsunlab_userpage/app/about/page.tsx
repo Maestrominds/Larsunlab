@@ -57,7 +57,7 @@ export default function AboutPage() {
 
             <div className="p-8 bg-gray-50 rounded-3xl border-l-4 border-orange-500 shadow-sm">
               <p className="text-gray-600 text-base leading-relaxed">
-                We began with a focused portfolio in Cardiology and Diabetology — the two largest prescription burden areas in Tamil Nadu — and expanded steadily into Gynaecology, Critical Care, Neurology, and Respiratory. Today, we operate across 25+ districts in Tamil Nadu through a network of dedicated Medical Representatives, stockists, and distributors who share our values.
+                We began with a focused portfolio in CAR+DIA — the two largest prescription burden areas in Tamil Nadu — and expanded steadily into Gynaecology, Critical Care, Neurology, and Respiratory. Today, we operate across 25+ districts in Tamil Nadu through a network of dedicated Medical Representatives, stockists, and distributors who share our values.
               </p>
             </div>
 

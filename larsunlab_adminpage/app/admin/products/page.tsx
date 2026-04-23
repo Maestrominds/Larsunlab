@@ -36,10 +36,11 @@ export default function ProductsPage() {
   const itemsPerPage = 8;
   const categories = [
     "All",
-    "CARDIOLOGY",
+    "CAR+DIA",
     "ORTHOPEDICS",
     "GYNAECOLOGY",
     "CRITICAL CARE",
+    "ORALS",
   ];
 
   const fetchProducts = async () => {
@@ -72,7 +73,7 @@ export default function ProductsPage() {
     precautions: "",
     storage: "",
     disclaimer: "",
-    category: "CARDIOLOGY",
+    category: "CAR+DIA",
   });
   const [selectedImages, setSelectedImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
@@ -129,7 +130,7 @@ export default function ProductsPage() {
       precautions: "",
       storage: "",
       disclaimer: "",
-      category: "CARDIOLOGY",
+      category: "CAR+DIA",
     });
     setSelectedImages([]);
     imagePreviews.forEach(url => URL.revokeObjectURL(url));

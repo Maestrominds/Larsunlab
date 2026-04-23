@@ -1,11 +1,11 @@
 "use client";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { HeartPulse, Activity, Bone, Syringe, Stethoscope } from "lucide-react";
+import { HeartPulse, Activity, Bone, Syringe, Stethoscope, Pill } from "lucide-react";
 
 const items = [
   {
-    title: "CARDIOLOGY",
+    title: "CAR+DIA",
     desc: "Advanced hypertension management and cardiovascular wellness portfolios.",
     icon: <HeartPulse size={22} />,
   },
@@ -23,6 +23,11 @@ const items = [
     title: "CRITICAL CARE",
     desc: "Life-saving injectables and advanced support systems for emergencies.",
     icon: <Syringe size={22} />,
+  },
+  {
+    title: "ORALS",
+    desc: "Comprehensive range of high-quality oral formulations for diverse therapies.",
+    icon: <Pill size={22} />,
   },
 ];
 

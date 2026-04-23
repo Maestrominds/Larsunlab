@@ -8,10 +8,11 @@ import { motion } from "framer-motion";
 
 const categories = [
   "All",
-  "CARDIOLOGY",
+  "CAR+DIA",
   "ORTHOPEDICS",
   "GYNAECOLOGY",
   "CRITICAL CARE",
+  "ORALS",
 ];
 
 export default function ProductsPage() {
@@ -91,8 +92,8 @@ export default function ProductsPage() {
               key={cat}
               onClick={() => { setActiveCategory(cat); setPage(1); }}
               className={`whitespace-nowrap px-5 py-2 rounded-full text-sm font-semibold transition-all border ${activeCategory === cat
-                  ? "bg-[#2b1e70] text-white border-[#2b1e70] shadow-md"
-                  : "bg-white text-gray-500 border-gray-200 hover:border-[#2b1e70] hover:text-[#2b1e70]"
+                ? "bg-[#2b1e70] text-white border-[#2b1e70] shadow-md"
+                : "bg-white text-gray-500 border-gray-200 hover:border-[#2b1e70] hover:text-[#2b1e70]"
                 }`}
             >
               {cat === "All" ? "All Categories" : cat}
@@ -217,7 +218,7 @@ export default function ProductsPage() {
             </div>
 
             <Link
-              href="https://wa.me/918248592553"
+              href="https://wa.me/917708417777"
               target="_blank"
               className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all shadow-lg shadow-orange-500/20 active:scale-[0.98] whitespace-nowrap"
             >
